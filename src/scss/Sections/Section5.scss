@@ -1,0 +1,102 @@
+.Section5 {
+    grid-area: Section5;
+    display: grid;
+    grid-template-columns: minmax(2rem, 1fr) minmax(0, 126.6rem) minmax(2rem, 1fr);
+    grid-template-rows: repeat(2, max-content);
+    grid-template-areas:
+        'line title .'
+        '. content .';
+    
+    &__Title {
+        grid-area: title;
+        font-size: 3.6rem;
+        margin: 0;
+        line-height: 3.6rem;
+        text-transform: uppercase;
+        align-self: center;
+    }
+
+    .Line {
+        grid-area: line;
+        margin-top: 0;
+        align-self: center;
+    }
+
+    &__Content {
+        grid-area: content;
+        display: grid;
+        grid-template-columns: 1fr 5rem 1fr 5rem 1fr;
+        grid-template-rows: repeat(2, max-content);
+        // justify-items: center;
+        padding: 10rem 0;
+
+        div:nth-child(6) {
+            display: none;
+        }
+
+        @media only screen and (max-width: 62.5em) {
+            grid-template-columns: 1fr 5rem 1fr;
+            grid-template-rows: repeat(3, max-content);
+
+            div:nth-child(4) {
+                display: none;
+            }
+
+            div:nth-child(6) {
+                display: block;
+            }
+
+            div:nth-child(8) {
+                display: none;
+            }
+        }
+
+        &-item {
+            display: grid;
+            grid-template-columns: repeat(2, max-content);
+            grid-template-rows: repeat(2, max-content);
+            grid-template-areas:
+                'logo title'
+                'logo text';
+            padding: 5rem 0;
+            position: relative;
+            z-index: 100;
+
+            img {
+                grid-area: logo;
+                height: 9rem;
+                width: 9rem;
+            }
+
+            p {
+                margin: 0;
+                grid-area: title;
+                font-size: 2.2rem;
+                line-height: 5.4rem;
+                text-transform: uppercase;
+            }
+
+            span:nth-child(3) {
+                font-family: 'Gotham Pro Regular';
+            }
+
+            span:nth-child(4) {
+                font-size: 12rem;
+                position: absolute;
+                z-index: -100;
+                color: #3f3f3f;
+                left: 6rem;
+                top: -.5rem;
+            }
+        }
+
+        &-arrow {
+            align-self: center;
+            display: block;
+            img {
+                height: 5rem;
+                width: 5rem;
+            }
+        }
+    }
+}

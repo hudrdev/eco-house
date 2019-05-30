@@ -1,0 +1,132 @@
+.Section1 {
+    grid-area: Section1;
+    background: url('../assets/section1-bg.jpg');
+    background-position: bottom;
+    background-size: cover;
+    display: grid;
+    grid-template-columns: minmax(2rem, 1fr) minmax(0, 126.6rem) minmax(2rem, 1fr);
+    grid-template-rows: 14rem 1fr 1fr;
+    grid-template-areas:
+        '. head .'
+        'line title .'
+        '. link .';
+    align-items: center;
+
+    &__Logo {
+        grid-area: head;
+        justify-self: start;
+        display: grid;
+        grid-template-columns: repeat(2, max-content);
+        grid-template-rows: repeat(2, max-content);
+        grid-template-areas: 'logo t1' 'logo t2';
+
+        img {
+            grid-area: logo;
+            width: 4rem;
+            height: 4rem;
+            margin-right: .5rem;
+        }
+
+        &-1 {
+            grid-area: t1;
+            font-size: 3rem;
+            line-height: 2.8rem;
+        }
+
+        &-2 {
+            grid-area: t2;
+            font-family: 'Gotham Pro Regular';
+            font-size: 1.8rem;
+            line-height: 1.4rem;
+        }
+    }
+
+    &__Phone {
+        grid-area: head;
+        justify-self: end;
+        margin-right: 1.5rem;
+
+        &-number {
+            font-family: 'Gotham Pro Regular';
+            font-size: 3rem;
+            line-height: 4rem;
+        }
+
+        &-1,
+        &-1:active,
+        &-1:visited {
+            font-family: 'Gotham Pro Regular';
+            font-size: 1.6rem;
+            line-height: 2rem;
+            text-transform: uppercase;
+            display: block;
+            border-bottom: 1px solid #ffcc00;
+            width: max-content;
+            margin-bottom: 1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        &-2 {
+            font-family: 'Gotham Pro Regular';
+            font-size: 1.2rem;
+            line-height: 1.2rem;
+        }
+    }
+
+    .Line {
+        grid-area: line;
+        align-self: start;
+    }
+
+    &__Title {
+        grid-area: title;
+        position: relative;
+        padding-bottom: 5rem;
+
+        h1 {
+            font-size: 5rem;
+            text-transform: uppercase;
+            margin: 0;
+            line-height: 1.2;
+            margin: 2.5rem 0 1.5rem 0;
+        }
+
+        div {
+            display: grid;
+            grid-template-columns: 5rem max-content;
+            grid-template-rows: 5rem;
+            grid-template-areas: 'logo text';
+            padding-left: 14rem;
+            align-items: center;
+            
+            img {
+                grid-area: logo;
+                width: 3rem;
+                height: 3rem;
+            }
+
+            p {
+                grid-area: text;
+                font-family: 'Gotham Pro Regular';
+                font-size: 2.2rem;
+                line-height: 2.2rem;
+                text-transform: uppercase;
+            }
+        }
+
+        &-stamp {
+            width: 10rem;
+            height: 10rem;
+            position: absolute;
+            left: 69rem;
+            top: 26rem;
+        }
+    }
+
+    .ButtonLink {
+        grid-area: link;
+        align-self: start;
+        margin-left: 14rem;
+    }
+}

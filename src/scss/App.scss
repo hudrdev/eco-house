@@ -1,0 +1,17 @@
+.App {
+    background: #2b2b2b;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 90rem 200rem 101.9rem repeat(3, max-content);
+    grid-template-areas:
+        'Section1'
+        'Section2'
+        'Section3'
+        'Section4'
+        'Section5'
+        'Section6';
+
+    @media only screen and (max-width: 62.5em) {
+        grid-template-rows: 90rem repeat(5, max-content);
+    }
+}

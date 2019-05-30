@@ -1,0 +1,85 @@
+.Section3 {
+    grid-area: Section3;
+    display: grid;
+    grid-template-columns: minmax(2rem, 1fr) minmax(0, 126.6rem) minmax(2rem, 1fr);
+    grid-template-rows: max-content 1fr;
+    grid-template-areas:
+        'line title .'
+        '. content .';
+    
+    .Line {
+        grid-area: line;
+        margin-top: 0;
+        align-self: center;
+    }
+    
+    &__Title {
+        grid-area: title;
+        font-size: 3.6rem;
+        margin: 0;
+        line-height: 3.6rem;
+        text-transform: uppercase;
+    }
+
+    &__Content {
+        grid-area: content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @media only screen and (max-width: 62.5em) {
+            padding: 10rem 0;
+        }
+        
+        &-woods {
+            position: relative;
+
+            img {
+                height: 54.8rem;
+                width: 70.9rem;
+
+                @media only screen and (max-width: 62.5em) {
+                    height: 35.62rem;
+                    width: 46rem;
+                }
+            }
+
+            .Section3__Content-text {
+                position: absolute;
+                width: max-content;
+    
+                p {
+                    font-size: 2.2rem;
+                    text-transform: uppercase;
+                    line-height: 2.2rem;
+                }
+    
+                span {
+                    font-size: 1.4rem;
+                    line-height: 2.6rem;
+                    font-family: 'Gotham Pro Regular';
+                }
+    
+                &:nth-child(2) {
+                    top: 23rem;
+                    right: -26rem;
+
+                    @media only screen and (max-width: 62.5em) {
+                        top: 16rem;
+                        right: -22rem;
+                    }
+                }
+    
+                &:nth-child(3) {
+                    left: -18rem;
+                    top: 1rem;
+                }
+    
+                &:nth-child(4) {
+                    left: 19rem;
+                    bottom: -6rem;
+                }
+            }
+        }
+    }
+
+}

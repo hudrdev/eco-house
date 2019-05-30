@@ -1,0 +1,244 @@
+.Section2 {
+    grid-area: Section2;
+    display: grid;
+    grid-template-columns: minmax(2rem, 1fr) minmax(0, 126.6rem) minmax(2rem, 1fr);
+    grid-template-rows: 24.4rem 9.6rem 61.1rem 13.23% 61.1rem 8.5rem;
+    grid-template-areas:
+        'line title .'
+        '. . .'
+        '. content1 .'
+        '. . .'
+        '. content2 .'
+        '. . .';
+    overflow: hidden;
+
+    @media only screen and (max-width: 62.5em) {
+        grid-template-rows: 12rem 5rem max-content 6rem max-content 5rem;
+    }
+    
+    &__bg-1 {
+        position: absolute;
+        left: -32.7rem;
+        top: -9.6rem;
+        opacity: .2;
+        height: 79rem;
+        width: 69rem;
+        z-index: -10;
+    }
+
+    &__bg-2 {
+        position: absolute;
+        right: -32.7rem;
+        bottom: -8.3rem;
+        opacity: .2;
+        height: 79rem;
+        width: 69rem;
+        z-index: -10;
+    }
+
+    .Line {
+        grid-area: line;
+        margin-bottom: 5.5rem;
+        align-self: end;
+    }
+
+    &__Title {
+        grid-area: title;
+        font-size: 3.6rem;
+        margin: 0;
+        line-height: 3.6rem;
+        text-transform: uppercase;
+        align-self: end;
+        margin-bottom: 4rem;
+    }
+
+    &__Content1 {
+        grid-area: content1;
+        display: grid;
+        grid-template-columns: 50% minmax(1rem, 1fr) 45%;
+        grid-template-rows: 1fr;
+        grid-template-areas: 'images . text';
+        z-index: 100;
+        position: relative;
+
+        @media only screen and (max-width: 62.5em) {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, max-content);
+            grid-template-areas: 'images' 'text';
+            grid-row-gap: 2rem;
+
+            .Section2__bg-1 {
+                display: none;
+            }
+        }
+
+        &-images {
+            grid-area: images;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, max-content);
+            grid-template-areas:
+                'i1 i1 i1 i1'
+                'i2 i3 i4 i5';
+            grid-gap: 1.1rem;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            img:nth-child(1) {
+                grid-area: i1;
+            }
+        }
+
+        &-description {
+            grid-area: text;
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            grid-template-rows: repeat(5, max-content);
+            grid-template-areas:
+                'title title'
+                'text text'
+                'c1 c2'
+                'call call'
+                'pdf pdf';
+
+            &-title {
+                grid-area: title;
+                margin: 0;
+                line-height: 1;
+                font-size: 3.6rem;
+                text-transform: uppercase;
+                margin-bottom: 3rem;
+                @media only screen and (max-width: 62.5em) {
+                    justify-self: center;
+                }
+            }
+
+            &-text {
+                grid-area: text;
+                font-family: 'Gotham Pro Regular';
+                font-size: 1.6rem;
+                line-height: 2.6rem;
+                @media only screen and (max-width: 62.5em) {
+                    font-size: 2rem;
+                    line-height: 3.4rem;
+                    padding: 0 10rem;
+                }
+            }
+
+            &-circle:nth-child(1) {
+                grid-area: c1
+            }
+
+            &-circle:nth-child(2) {
+                grid-area: c2
+            }
+
+            &-circle {
+                display: flex;
+                height: 15rem;
+                width: 15rem;
+                background: #383838;
+                position: relative;
+                border-radius: 50%;
+                justify-content: center;
+                align-items: center;
+                margin: 5rem 0;
+
+                @media only screen and (max-width: 62.5em) {
+                    justify-self: center;
+                    margin-bottom: 8rem;
+                }
+
+                p {
+                    margin: 0;
+                    color: #ffcc00;
+                    font-size: 2.6rem;
+                    line-height: 1;
+
+                    sup {
+                        font-family: 'Gotham Pro Regular';
+                    }
+                }
+
+                span {
+                    position: absolute;
+                    font-family: 'Gotham Pro Regular';
+                    right: -8.5rem;
+                    @media only screen and (max-width: 62.5em) {
+                        right: 0;
+                        transform: translateX(-50%);
+                        bottom: -6rem;
+                        text-align: center;
+                    }
+                }
+            }
+
+            .ButtonLink {
+                @media only screen and (max-width: 62.5em) {
+                    grid-column: span 2;
+                    justify-self: center;
+                }
+            }
+
+            .Pdf {
+                grid-area: pdf;
+                margin-top: 3.5rem;
+                margin-bottom: 5rem;
+                @media only screen and (max-width: 62.5em) {
+                    grid-column: span 2;
+                    justify-self: center;
+                }
+            }
+        }
+    }
+
+    &__Content2 {
+        grid-area: content2;
+        display: grid;
+        grid-template-columns: 45% minmax(1rem, 1fr) 50%;
+        grid-template-rows: 1fr;
+        grid-template-areas: 'text . images';
+        z-index: 100;
+        position: relative;
+
+        @media only screen and (max-width: 62.5em) {
+            grid-template-columns: 1fr;
+            grid-template-rows: repeat(2, max-content);
+            grid-template-areas: 'images' 'text';
+            grid-row-gap: 2rem;
+
+            .Section2__bg-2 {
+                display: none;
+            }
+        }
+
+        &-images {
+            grid-area: images;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(2, max-content);
+            grid-template-areas:
+                'i1 i1 i1 i1'
+                'i2 i3 i4 i5';
+            grid-gap: 1.1rem;
+
+            img {
+                width: 100%;
+                height: auto;
+            }
+
+            img:nth-child(1) {
+                grid-area: i1;
+            }
+        }
+
+        
+    }
+
+    &__SNP {
+        grid-area: snp;
+    }
+}
